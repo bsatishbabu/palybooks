@@ -1,0 +1,17 @@
+---
+ - hosts: all
+   vars:
+       fruits:
+            - apple
+            - banana
+            - orange
+       credentials:
+                 name: raju
+                 password: raju
+   tasks:
+   - name: list
+     debug: 
+         msg: "{{ fruits[2] }}"
+   - name: dict 
+     debug:
+          msg: "{{ credentials.password }}"

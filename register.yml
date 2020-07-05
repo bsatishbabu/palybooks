@@ -1,0 +1,10 @@
+---
+ - name: Register example
+   hosts: all
+   tasks:
+   - name: running commands
+     command: df -h
+     register: out
+   - name: printing out var
+     debug:
+        msg: "{{ out.stdout }}"

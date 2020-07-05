@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   become: yes
+   tasks:
+   - name: installing pkgs
+     yum:
+       name: "{{ item }}"
+       state: present
+     when: ansible_distribution == "{{ ansible_distribution }}"
+     loop:
+         - ["wget", "nano", "git", "maven"]
+...

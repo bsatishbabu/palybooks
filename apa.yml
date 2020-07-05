@@ -1,0 +1,13 @@
+---
+ - hosts: ubuntu
+   become: yes
+   vars_files:
+           - vars.yml      
+     - pkg: nano
+   tasks:
+   - name: installing "{{ pkg }}"
+     apt:
+       name: "{{ pkg }}"
+       state: present
+     vars:
+       - pkg: git

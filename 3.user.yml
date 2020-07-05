@@ -1,0 +1,11 @@
+---
+  - hosts: all
+    tasks:
+            - name: creating group
+              group:
+                      name: devops
+            - name: creating user
+              user:
+                      name: "satish"
+                      group: devops
+...

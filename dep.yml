@@ -1,0 +1,20 @@
+---
+ - hosts: ubuntu
+   become: yes
+   tasks:
+   - name: installing apache2
+     apt:
+       name: apache2
+       state: present
+      notify: start apache2
+   - name: deployment of index.html
+     copy:
+       src: index.html
+       dest: /var/www/html
+     notify: start apache2  
+   handlers:
+   - name: start apache2
+     service:
+       name: apache2
+       state: restarted
+...
